@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/elixir:1.7.4
+    working_directory: ~/calories
+    steps:
+      - checkout
+      - run: mix test
+      - store_test_results:
+          path: _build/test/lib/calories
